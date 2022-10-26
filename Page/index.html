@@ -63,13 +63,17 @@
           <small>Error Message</small>
         </div>
 
-        <!--
         <div class="form-control">
           <label for="idade">Idade:</label>
-          <input id="idade" name="idade" type="number" />
+          <input
+            id="idade"
+            name="idade"
+            type="number"
+            onblur="getValueIdade(this)"
+          />
           <small>Error Message</small>
         </div>
-
+        <!--         
         <div class="form-control">
           <label for="cep">CEP:</label>
           <input id="cep" name="cep" type="" />
@@ -120,8 +124,7 @@
           <small>Error Message</small>
         </div> 
 
-        <button type="submit" form="form">Enviar</button>
-        -->
+        <button type="submit" form="form">Enviar</button> -->
       </form>
     </div>
   </body>

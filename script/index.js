@@ -43,6 +43,26 @@ function validarNome(nome) {
   }
 }
 
+function getValueIdade(input) {
+  const idade = document.getElementById("idade");
+  let isValidIdade = validarIdade(input.value);
+  if (isValidIdade) {
+    setSuccessFor(idade);
+  } else {
+    setErrorFor(idade, "Idade inválida");
+  }
+}
+
+function validarIdade(idade) {
+  if (idade === "") {
+    return false;
+  } else if (idade > 0 && idade < 110) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;
