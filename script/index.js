@@ -102,6 +102,26 @@ function validarRua(rua) {
   }
 }
 
+function getValueNumero(input) {
+  const numero = document.getElementById("numero");
+  let isValidNumero = validarNumero(input.value);
+  if (isValidNumero) {
+    setSuccessFor(numero);
+  } else {
+    setErrorFor(numero, "Número inválido");
+  }
+}
+
+function validarNumero(idade) {
+  if (idade === "") {
+    return false;
+  } else if (idade > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;
