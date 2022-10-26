@@ -65,6 +65,13 @@ function pesquisacep(valor) {
   }
 }
 
+function maskCep(text) {
+  let maskedText = CepMask(text.value);
+  document.getElementById("cep").value = maskedText;
+  //   console.log(cpf.value);
+  //   cpf.value = CpfMask(text.value);
+}
+
 function getValueCpf(input) {
   const cpf = document.getElementById("cpf");
   let isValidCpf = validarCPF(input.value);
@@ -345,4 +352,10 @@ function CepMask(num) {
     }
   }
   return resultValue;
+}
+
+function excluirOption(option) {
+  let select_situação = document.getElementById("hobby");
+  option = select_situação;
+  select_situação.remove(1);
 }

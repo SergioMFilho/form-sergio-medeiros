@@ -82,6 +82,7 @@
             type="text"
             value=""
             onblur="pesquisacep(this.value)"
+            maxlength="9"
           />
           <small>Error Message</small>
         </div>
@@ -138,10 +139,36 @@
         </div>
 
         <div class="form-control">
+          <label>
+            Escolha qual é o seu hobby preferido:
+            <select id="hobby" name="hobby" multiple size="4">
+              <optgroup label="Hobbys">
+                <!-- Deixar em negrito -->
+                <option value="viajar">Viajar</option>
+                <option value="exerciciosFisicos">Exercícios Físicos</option>
+                <option value="leitura">Leitura</option>
+                <option value="jogarVideoGame">Jogar Videogame</option>
+                <option value="leitura">Leitura</option>
+                <option value="cozinhar">Cozinhar</option>
+              </optgroup>
+            </select>
+          </label>
+          <small>Error Message</small>
+          <div class="divButtons">
+            <button id="adicionar">
+              <img src="../img/add.png" alt="botaoAdicionar" />
+            </button>
+            <button id="excluir" onclick="excluirOption()">
+              <img src="../img/delete1.png" alt="botaoExcluir" />
+            </button>
+          </div>
+        </div>
+
+        <!-- <div class="form-control">
           <label for="hobby">Hobby:</label>
           <input id="hobby" name="hobby" type="text" />
           <small>Error Message</small>
-        </div>
+        </div> -->
 
         <div class="form-control checkbox">
           <input id="checkbox" name="checkbox" type="checkbox" />
@@ -151,7 +178,7 @@
           <small>Error Message</small>
         </div>
 
-        <button type="submit" form="form">Enviar</button> -->
+        <button class="buttonSubmit" type="submit" form="form">Enviar</button>
       </form>
     </div>
   </body>
