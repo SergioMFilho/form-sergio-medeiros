@@ -354,8 +354,17 @@ function CepMask(num) {
   return resultValue;
 }
 
-function excluirOption(option) {
-  let select_situação = document.getElementById("hobby");
-  option = select_situação;
-  select_situação.remove(1);
+function excluirOption() {
+  let selector = document.getElementById("hobby");
+  selector.remove(selector.selectedIndex);
+}
+
+function addHobby() {
+  let inputHobby = document.getElementById("inputHobby");
+  let option = document.createElement("option");
+  option.innerText = inputHobby.value;
+  document.getElementById("hobby").appendChild(option);
+
+  // let select = document.getElementById("hobby");
+  // select.options[select.options.length] = new Option("My option", "My value");
 }

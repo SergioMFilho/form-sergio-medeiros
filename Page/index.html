@@ -29,7 +29,7 @@
     <script src="../script/index.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container animating">
       <div class="header">
         <h2>Form-Sérgio-Medeiros</h2>
       </div>
@@ -142,26 +142,24 @@
           <label>
             Escolha qual é o seu hobby preferido:
             <select id="hobby" name="hobby" multiple size="4">
-              <optgroup label="Hobbys">
-                <!-- Deixar em negrito -->
-                <option value="viajar">Viajar</option>
-                <option value="exerciciosFisicos">Exercícios Físicos</option>
-                <option value="leitura">Leitura</option>
-                <option value="jogarVideoGame">Jogar Videogame</option>
-                <option value="leitura">Leitura</option>
-                <option value="cozinhar">Cozinhar</option>
-              </optgroup>
+              <option value="viajar">Viajar</option>
+              <option value="exerciciosFisicos">Exercícios Físicos</option>
+              <option value="leitura">Leitura</option>
+              <option value="jogarVideoGame">Jogar Videogame</option>
+              <option value="leitura">Leitura</option>
+              <option value="cozinhar">Cozinhar</option>
             </select>
           </label>
           <small>Error Message</small>
           <div class="divButtons">
-            <button id="adicionar">
+            <button class="adicionar" onclick="addHobby(this)" type="button">
               <img src="../img/add.png" alt="botaoAdicionar" />
             </button>
-            <button id="excluir" onclick="excluirOption()">
+            <button id="excluir" onclick="excluirOption()" type="button">
               <img src="../img/delete1.png" alt="botaoExcluir" />
             </button>
           </div>
+          <input id="inputHobby" name="inputHobby" type="text" value="" />
         </div>
 
         <!-- <div class="form-control">

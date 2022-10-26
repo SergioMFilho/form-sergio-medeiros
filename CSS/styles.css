@@ -23,6 +23,7 @@ body {
     border: 2px solid #3E445B;
     width: 450px;
     max-width: 100%;
+    transition: all 2s;
 }
 
 
@@ -136,17 +137,38 @@ div .form-control {
     justify-content: space-around;
 }
 
-#adicionar {
+.adicionar {
     margin-top: 10px;
     width: 55px;
     height: 55px;
     margin-left: 16px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid black;
     color: white;
     background: #00B84C;
     cursor: pointer;
+    transition: all 0.3s;
   }
+
+.adicionar:hover {
+    transform: scale(1.1);
+}
+
+@keyframes example {
+	from {
+        left: 0px;
+        visibility: hidden;
+     }
+     to {
+         left: calc(100% - 100px);
+     }
+}
+
+.animating {
+    animation: example 2s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
 
 #excluir {
     margin-top: 10px;
@@ -154,8 +176,13 @@ div .form-control {
     height: 55px;
     margin-left: 16px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid black;
     color: white;
     background: #FF0256;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+#excluir:hover {
+    transform: scale(1.1);
 }
