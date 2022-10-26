@@ -76,7 +76,13 @@
 
         <div class="form-control">
           <label for="cep">CEP:</label>
-          <input id="cep" name="cep" type="" />
+          <input
+            id="cep"
+            name="cep"
+            type="text"
+            value=""
+            onblur="pesquisacep(this.value)"
+          />
           <small>Error Message</small>
         </div>
 
@@ -126,23 +132,24 @@
             name="estado"
             type="text"
             onblur="getValueEstado(this)"
+            size="2"
           />
           <small>Error Message</small>
         </div>
-        <!--
+
         <div class="form-control">
           <label for="hobby">Hobby:</label>
           <input id="hobby" name="hobby" type="text" />
           <small>Error Message</small>
         </div>
 
-        <div class="form-control">
+        <div class="form-control checkbox">
           <input id="checkbox" name="checkbox" type="checkbox" />
           <label for="checkbox"
             >Li, aceito e concordo com os termos e condições</label
           >
           <small>Error Message</small>
-        </div> 
+        </div>
 
         <button type="submit" form="form">Enviar</button> -->
       </form>
