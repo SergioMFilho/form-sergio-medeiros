@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 const nome = document.getElementById("nome");
 
-function getValue(input) {
+function getValueCpf(input) {
   const cpf = document.getElementById("cpf");
   let isValidCpf = validarCPF(input.value);
   if (isValidCpf) {
@@ -18,6 +18,29 @@ function maskCpf(text) {
   document.getElementById("cpf").value = maskedText;
   //   console.log(cpf.value);
   //   cpf.value = CpfMask(text.value);
+}
+
+function getValueNome(input) {
+  const nome = document.getElementById("nome");
+  let isValidNome = validarNome(input.value);
+  if (isValidNome) {
+    setSuccessFor(nome);
+  } else {
+    setErrorFor(nome, "Nome inválido");
+  }
+}
+
+function validarNome(nome) {
+  if (nome === "") {
+    return false;
+  } else if (
+    nome.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    nome.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function validarCPF(cpf) {
