@@ -1,6 +1,16 @@
 const form = document.getElementById("form");
 const nome = document.getElementById("nome");
 
+// let cep;
+// let logradouro;
+// let complemento;
+// let bairro;
+// let localidade;
+// let uf;
+// let unidade;
+// let ibge;
+// let gia;
+
 function getValueCpf(input) {
   const cpf = document.getElementById("cpf");
   let isValidCpf = validarCPF(input.value);
@@ -63,6 +73,35 @@ function validarIdade(idade) {
   }
 }
 
+function getValueRua(input) {
+  const rua = document.getElementById("rua");
+  let isValidRua = validarRua(input.value);
+  if (isValidRua) {
+    setSuccessFor(rua);
+  } else {
+    setErrorFor(rua, "Rua inválida");
+  }
+}
+
+function validarRua(rua) {
+  if (rua === "") {
+    return false;
+  } else if (
+    rua.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    rua.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    rua.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    ) ||
+    rua.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    )
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;
@@ -113,39 +152,6 @@ function checkInputs() {
     // adicionar a classe de sucesso
     setSuccessFor(nome);
   }
-
-  //   if (emailValue === "") {
-  //     // mostrar erro
-  //     // add classe
-  //     setErrorFor(email, "Preencha esse campo");
-  //   } else if (!isEmail(emailValue)) {
-  //     setErrorFor(email, "Email inválido");
-  //   } else {
-  //     // adicionar a classe de sucesso
-  //     setSuccessFor(email);
-  //   }
-
-  //   if (passwordValue === "") {
-  //     // mostrar erro
-  //     // add classe
-  //     setErrorFor(password, "Preencha esse campo");
-  //   } else if (passwordValue.length < 8) {
-  //     setErrorFor(password, "Senha deve ter mais que 8 caracteres");
-  //   } else {
-  //     // adicionar a classe de sucesso
-  //     setSuccessFor(password);
-  //   }
-
-  //   if (passwordtwoValue === "") {
-  //     // mostrar erro
-  //     // add classe
-  //     setErrorFor(passwordtwo, "Preencha esse campo");
-  //   } else if (passwordValue !== passwordtwoValue) {
-  //     setErrorFor(passwordtwo, "Senhas não tão iguais");
-  //   } else {
-  //     // adicionar a classe de sucesso
-  //     setSuccessFor(passwordtwo);
-  //   }
 }
 
 function setErrorFor(input, message) {
