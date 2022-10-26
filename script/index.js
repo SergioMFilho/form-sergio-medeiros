@@ -122,6 +122,35 @@ function validarNumero(idade) {
   }
 }
 
+function getValueBairro(input) {
+  const bairro = document.getElementById("bairro");
+  let isValidBairro = validarBairro(input.value);
+  if (isValidBairro) {
+    setSuccessFor(bairro);
+  } else {
+    setErrorFor(bairro, "Bairro inválido");
+  }
+}
+
+function validarBairro(bairro) {
+  if (bairro === "") {
+    return false;
+  } else if (
+    bairro.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    bairro.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    bairro.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    ) ||
+    bairro.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    )
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;

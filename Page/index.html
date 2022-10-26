@@ -96,13 +96,18 @@
           />
           <small>Error Message</small>
         </div>
-        <!--
+
         <div class="form-control">
           <label for="bairro">Bairro:</label>
-          <input id="bairro" name="bairro" type="text" />
+          <input
+            id="bairro"
+            name="bairro"
+            type="text"
+            onblur="getValueBairro(this)"
+          />
           <small>Error Message</small>
         </div>
-
+        <!--
         <div class="form-control">
           <label for="cidade">Cidade:</label>
           <input id="cidade" name="cidade" type="text" />
