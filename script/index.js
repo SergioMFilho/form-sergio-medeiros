@@ -41,10 +41,9 @@ function getValueNome(input) {
 }
 
 function validarNome(nome) {
-  if (nome === "") {
-    return false;
-  } else if (
-    nome.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+  if (
+    (nome &&
+      nome.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
     nome.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)
   ) {
     return true;
@@ -64,9 +63,7 @@ function getValueIdade(input) {
 }
 
 function validarIdade(idade) {
-  if (idade === "") {
-    return false;
-  } else if (idade > 0 && idade < 110) {
+  if (idade && idade > 0 && idade < 110) {
     return true;
   } else {
     return false;
@@ -84,10 +81,8 @@ function getValueRua(input) {
 }
 
 function validarRua(rua) {
-  if (rua === "") {
-    return false;
-  } else if (
-    rua.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+  if (
+    (rua && rua.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
     rua.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
     rua.match(
       /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
@@ -112,10 +107,8 @@ function getValueNumero(input) {
   }
 }
 
-function validarNumero(idade) {
-  if (idade === "") {
-    return false;
-  } else if (idade > 0) {
+function validarNumero(numero) {
+  if (numero && numero > 0) {
     return true;
   } else {
     return false;
@@ -133,10 +126,8 @@ function getValueBairro(input) {
 }
 
 function validarBairro(bairro) {
-  if (bairro === "") {
-    return false;
-  } else if (
-    bairro.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+  if (
+    (bairro && bairro.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
     bairro.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
     bairro.match(
       /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
@@ -162,10 +153,8 @@ function getValueCidade(input) {
 }
 
 function validarCidade(cidade) {
-  if (cidade === "") {
-    return false;
-  } else if (
-    cidade.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+  if (
+    (cidade && cidade.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
     cidade.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
     cidade.match(
       /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
@@ -191,10 +180,8 @@ function getValueEstado(input) {
 }
 
 function validarEstado(estado) {
-  if (estado === "") {
-    return false;
-  } else if (
-    estado.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+  if (
+    (estado && estado.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
     estado.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
     estado.match(
       /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
