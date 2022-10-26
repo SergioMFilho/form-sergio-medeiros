@@ -151,6 +151,35 @@ function validarBairro(bairro) {
   }
 }
 
+function getValueCidade(input) {
+  const cidade = document.getElementById("cidade");
+  let isValidCidade = validarCidade(input.value);
+  if (isValidCidade) {
+    setSuccessFor(cidade);
+  } else {
+    setErrorFor(cidade, "Cidade inválida");
+  }
+}
+
+function validarCidade(cidade) {
+  if (cidade === "") {
+    return false;
+  } else if (
+    cidade.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    cidade.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    cidade.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    ) ||
+    cidade.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    )
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;
