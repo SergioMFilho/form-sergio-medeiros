@@ -180,6 +180,35 @@ function validarCidade(cidade) {
   }
 }
 
+function getValueEstado(input) {
+  const estado = document.getElementById("estado");
+  let isValidEstado = validarEstado(input.value);
+  if (isValidEstado) {
+    setSuccessFor(estado);
+  } else {
+    setErrorFor(estado, "Estado inválido");
+  }
+}
+
+function validarEstado(estado) {
+  if (estado === "") {
+    return false;
+  } else if (
+    estado.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    estado.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
+    estado.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    ) ||
+    estado.match(
+      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
+    )
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validarCPF(cpf) {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf == "") return false;

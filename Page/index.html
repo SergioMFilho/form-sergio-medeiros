@@ -118,13 +118,18 @@
           />
           <small>Error Message</small>
         </div>
-        <!--
+
         <div class="form-control">
           <label for="estado">Estado:</label>
-          <input id="estado" name="estado" type="text" />
+          <input
+            id="estado"
+            name="estado"
+            type="text"
+            onblur="getValueEstado(this)"
+          />
           <small>Error Message</small>
         </div>
-
+        <!--
         <div class="form-control">
           <label for="hobby">Hobby:</label>
           <input id="hobby" name="hobby" type="text" />
