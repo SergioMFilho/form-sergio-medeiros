@@ -94,6 +94,7 @@ function maskCpf(text) {
 function getValueNome(input) {
   const nome = document.getElementById("nome");
   let isValidNome = validarNome(input.value);
+  console.log(isValidNome);
   if (isValidNome) {
     setSuccessFor(nome);
   } else {
@@ -102,11 +103,7 @@ function getValueNome(input) {
 }
 
 function validarNome(nome) {
-  if (
-    (nome &&
-      nome.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
-    nome.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)
-  ) {
+  if (nome && nome.match(/^[^0-9]+$/)) {
     return true;
   } else {
     return false;
@@ -142,20 +139,10 @@ function getValueRua(input) {
 }
 
 function validarRua(rua) {
-  if (
-    (rua && rua.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
-    rua.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
-    rua.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    ) ||
-    rua.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    )
-  ) {
+  if (rua) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function getValueNumero(input) {
@@ -187,16 +174,7 @@ function getValueBairro(input) {
 }
 
 function validarBairro(bairro) {
-  if (
-    (bairro && bairro.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
-    bairro.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
-    bairro.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    ) ||
-    bairro.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    )
-  ) {
+  if (bairro) {
     return true;
   } else {
     return false;
@@ -214,16 +192,7 @@ function getValueCidade(input) {
 }
 
 function validarCidade(cidade) {
-  if (
-    (cidade && cidade.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
-    cidade.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
-    cidade.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    ) ||
-    cidade.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    )
-  ) {
+  if (cidade) {
     return true;
   } else {
     return false;
@@ -241,16 +210,7 @@ function getValueEstado(input) {
 }
 
 function validarEstado(estado) {
-  if (
-    (estado && estado.match(/^[a-zA-Z\u00C0-\u017F´]{0,}$/)) ||
-    estado.match(/^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/) ||
-    estado.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    ) ||
-    estado.match(
-      /^[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]+\s+[a-zA-Z\u00C0-\u017F´]{0,}$/
-    )
-  ) {
+  if (estado) {
     return true;
   } else {
     return false;
@@ -292,22 +252,7 @@ function validarCPF(cpf) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  checkInputs();
 });
-
-function checkInputs() {
-  const nome = nome.value.trim();
-
-  if (nome === "") {
-    // mostrar erro
-    // add classe
-    setErrorFor(nome, "Preencha esse campo");
-  } else {
-    // adicionar a classe de sucesso
-    setSuccessFor(nome);
-  }
-}
 
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
@@ -371,9 +316,8 @@ function addHobby() {
   // select.options[select.options.length] = new Option("My option", "My value");
 }
 
-const openModalButton = document.querySelector("#open-modal");
 const closeModalButton = document.querySelector("#close-modal");
-const modal = document.querySelector("#modal");
+closeModalButton.onclick = "toggleModal()";
 const fade = document.querySelector("#fade");
 
 const toggleModal = () => {
@@ -381,6 +325,52 @@ const toggleModal = () => {
   fade.classList.toggle("hide");
 };
 
-[openModalButton, closeModalButton, fade].forEach((el) => {
+[closeModalButton, fade].forEach((el) => {
   el.addEventListener("click", () => toggleModal());
 });
+
+function listHobbys(hobbysOptions) {
+  const hobbys = [];
+  for (option of hobbysOptions) {
+    hobbys.push(option.innerText);
+  }
+  return hobbys;
+}
+
+function modalDeSucesso() {
+  let checkbox = document.getElementById("checkbox");
+  if (checkbox.checked) {
+    let nome = document.getElementById("nome").value;
+    let cpf = document.getElementById("cpf").value;
+    let dataNascimento = document.getElementById("dataNascimento").value;
+    let idade = document.getElementById("idade").value;
+    let cep = document.getElementById("cep").value;
+    let rua = document.getElementById("rua").value;
+    let numero = document.getElementById("numero").value;
+    let bairro = document.getElementById("bairro").value;
+    let cidade = document.getElementById("cidade").value;
+    let estado = document.getElementById("estado").value;
+    let hobby = listHobbys(document.getElementById("hobby"));
+    let result = document.getElementById("result");
+    result.textContent = JSON.stringify(
+      {
+        nome,
+        cpf,
+        dataNascimento,
+        idade,
+        cep,
+        rua,
+        numero,
+        bairro,
+        cidade,
+        estado,
+        hobby,
+      },
+      undefined,
+      2
+    );
+    toggleModal();
+  } else {
+    setErrorFor(checkbox, "Ative o checkbox");
+  }
+}

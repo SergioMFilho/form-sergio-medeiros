@@ -235,11 +235,15 @@ div .form-control {
   
   .modal-body {
     background-color: #2F3644;
+    padding: 1rem;
+    word-wrap: break-word;
+
   }
 
-  .modal-body p {
+  .modal-body pre {
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.722);
+    text-overflow: unset;
   }
   
   #modal.hide,
@@ -250,4 +254,9 @@ div .form-control {
   
   #modal.hide {
     top: 0;
+  }
+
+  .form-control .checkbox {
+    flex-direction: column;
+    background-color:red ;
   }

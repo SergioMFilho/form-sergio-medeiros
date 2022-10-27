@@ -35,7 +35,7 @@
       </div>
       <form class="form" id="form">
         <div class="form-control">
-          <label for="nome">Nome:</label>
+          <label for="nome">Nome:</label> 
           <input
             id="nome"
             name="nome"
@@ -165,20 +165,13 @@
           <input id="inputHobby" name="inputHobby" type="text" value="" />
         </div>
 
-        <!-- <div class="form-control">
-          <label for="hobby">Hobby:</label>
-          <input id="hobby" name="hobby" type="text" />
-          <small>Error Message</small>
-        </div> -->
-
-        <div class="form-control checkbox">
+        <div class="checkbox teste">
           <input id="checkbox" name="checkbox" type="checkbox" />
-          <label for="checkbox"
-            >Li, aceito e concordo com os termos e condições</label
-          >
+          <label>Li, aceito e concordo com os termos e condições do LGPD</label>
           <small>Error Message</small>
         </div>
-
+        
+        
         <!-- <button class="buttonSubmit" type="submit" form="form">Enviar</button> -->
         <button
           id="open-modal"
@@ -187,6 +180,7 @@
           data-toggle="modal"
           data-target="#exampleModal"
           form="form"
+          onclick="modalDeSucesso(this)"
         >
           Enviar
         </button>
@@ -194,21 +188,11 @@
         <div id="modal" class="hide">
           <div class="modal-header">
             <h2>Este é o Modal</h2>
-            <button id="close-modal">Fechar</button>
+            <button id="close-modal" onclick="toggleModal()">Fechar</button>
           </div>
           <div class="modal-body">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, quam?
-              Quas accusantium id cupiditate iste veritatis repudiandae odio dolore
-              voluptas. Eum, deserunt quod. Sit similique laudantium assumenda
-              repellat vel necessitatibus.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius alias
-              voluptate doloremque, totam inventore autem quis non error! Earum
-              ullam fuga, officiis voluptates pariatur unde et adipisci ducimus non
-              obcaecati.
-            </p>
+            <pre id="result">
+            </pre>
           </div>
       </form>
     </div>
