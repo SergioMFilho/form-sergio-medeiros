@@ -362,9 +362,25 @@ function excluirOption() {
 function addHobby() {
   let inputHobby = document.getElementById("inputHobby");
   let option = document.createElement("option");
-  option.innerText = inputHobby.value;
-  document.getElementById("hobby").appendChild(option);
+  if (inputHobby.value != "" && inputHobby.value != option) {
+    option.innerText = inputHobby.value;
+    document.getElementById("hobby").appendChild(option);
+  }
 
   // let select = document.getElementById("hobby");
   // select.options[select.options.length] = new Option("My option", "My value");
 }
+
+const openModalButton = document.querySelector("#open-modal");
+const closeModalButton = document.querySelector("#close-modal");
+const modal = document.querySelector("#modal");
+const fade = document.querySelector("#fade");
+
+const toggleModal = () => {
+  modal.classList.toggle("hide");
+  fade.classList.toggle("hide");
+};
+
+[openModalButton, closeModalButton, fade].forEach((el) => {
+  el.addEventListener("click", () => toggleModal());
+});

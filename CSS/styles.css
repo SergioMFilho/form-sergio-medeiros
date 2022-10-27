@@ -135,6 +135,7 @@ div .form-control {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 20px;
 }
 
 .adicionar {
@@ -186,3 +187,67 @@ div .form-control {
 #excluir:hover {
     transform: scale(1.1);
 }
+
+#open-modal {
+  background-color: #007bff;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+  
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+  #fade,
+  #modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    background-color: black;
+    color: #fff;
+  }
+  
+  .modal-body {
+    background-color: #2F3644;
+  }
+
+  .modal-body p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.722);
+  }
+  
+  #modal.hide,
+  #fade.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #modal.hide {
+    top: 0;
+  }
