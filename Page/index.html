@@ -29,12 +29,13 @@
     <script src="../script/index.js" defer></script>
   </head>
   <body>
-    <div class="container animating">
+    <div class="container">
       <div class="header">
-        <h2>Form-Sérgio-Medeiros</h2>
+        <!-- <h2>Form-Sérgio-Medeiros</h2> -->
       </div>
       <form class="form" id="form">
         <div class="form-control">
+          <div class="dadosPessoais">Dados Pessoais</div>
           <label for="nome">Nome:</label> 
           <input
             id="nome"
@@ -53,6 +54,7 @@
             onblur="getValueCpf(this)"
             maxlength="14"
             onkeyup="maskCpf(this)"
+            placeholder="XXX XXX XXX XX"
           />
           <small>Error Message</small>
         </div>
@@ -75,6 +77,7 @@
         </div>
 
         <div class="form-control">
+          <div class="dadosPessoais">Informações de Contato</div>
           <label for="cep">CEP:</label>
           <input
             id="cep"
@@ -82,6 +85,7 @@
             onblur="pesquisacep(this.value)"
             maxlength="9"
             onkeyup="maskCep(this)"
+            placeholder="XXXXX XXX"
           />
           <small>Error Message</small>
         </div>
@@ -172,6 +176,7 @@
         
         
         <!-- <button class="buttonSubmit" type="submit" form="form">Enviar</button> -->
+        <!-- <a href="#"><span>Read More</span></a> -->
         <button
           id="open-modal"
           type="submit"
@@ -179,8 +184,7 @@
           data-toggle="modal"
           data-target="#exampleModal"
           form="form"
-          onclick="modalDeSucesso(this)"
-        >
+          onclick="modalDeSucesso(this)">
           Enviar
         </button>
         <div id="fade" class="hide"></div>

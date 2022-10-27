@@ -39,6 +39,12 @@ body {
     font-size: 25px;
 }
 
+.dadosPessoais {
+    font-size: 1.2rem;
+    color: #28C62A;
+    padding-bottom: 2px;
+}
+
 
 .form {
     padding: 0 40px 30px;
@@ -154,7 +160,6 @@ div .form-control {
 
 .adicionar:hover {
     transform: scale(1.15);
-    
 }
 
 @keyframes pulse {
@@ -272,3 +277,12 @@ div .form-control {
     align-items: center;
     justify-content: center;
   }
+
+  /* .container a {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #0f0;
+    text-transform: uppercase;
+    font-weight: 600;
+  } */
