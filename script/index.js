@@ -25,6 +25,10 @@ function meu_callback(conteudo) {
 }
 
 function pesquisacep(valor) {
+  const rua = document.getElementById("rua");
+  const bairro = document.getElementById("bairro");
+  const cidade = document.getElementById("cidade");
+  const estado = document.getElementById("estado");
   const cep1 = document.getElementById("cep");
   //Nova variável "cep" somente com dígitos.
   var cep = valor.replace(/\D/g, "");
@@ -52,16 +56,25 @@ function pesquisacep(valor) {
       //Insere script no documento e carrega o conteúdo.
       document.body.appendChild(script);
       setSuccessFor(cep1);
+      setSuccessFor(rua);
+      setSuccessFor(bairro);
+      setSuccessFor(cidade);
+      setSuccessFor(estado);
     } //end if.
     else {
       //cep é inválido.
       limpa_formulário_cep();
       setErrorFor(cep1, "Cep inválido");
+      setErrorFor(rua, "Rua inválida");
+      setErrorFor(bairro, "Bairro inválido");
+      setErrorFor(cidade, "Cidade inválida");
+      setErrorFor(estado, "Estado Inválido");
     }
   } //end if.
   else {
     //cep sem valor, limpa formulário.
     limpa_formulário_cep();
+    setErrorFor(cep1, "Cep inválido");
   }
 }
 
@@ -108,24 +121,6 @@ function validarNome(nome) {
     return false;
   }
 }
-
-// function getValueDataNascimento(input) {
-//   const dataNascimento = document.getElementById("dataNascimento");
-//   let isValidDataNascimento = validarDataNascimento(input.value);
-//   if (isValidDataNascimento) {
-//     setSuccessFor(isValidDataNascimento);
-//   } else {
-//     setErrorFor(dataNascimento, "Nome inválido");
-//   }
-// }
-
-// function validarDataNascimento(dataNascimento) {
-//   if (dataNascimento) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
 
 function validadata() {
   const dataNascimento = document.getElementById("dataNascimento");
@@ -351,15 +346,15 @@ function excluirOption() {
 }
 
 function addHobby() {
+  let hobby = listHobbys(document.getElementById("hobby"));
   let inputHobby = document.getElementById("inputHobby");
   let option = document.createElement("option");
-  if (inputHobby.value != "" && inputHobby.value != option) {
+  const found = hobby.find((element) => element === inputHobby.value);
+  if (inputHobby.value != "" && !found) {
     option.innerText = inputHobby.value;
     document.getElementById("hobby").appendChild(option);
   }
-
-  // let select = document.getElementById("hobby");
-  // select.options[select.options.length] = new Option("My option", "My value");
+  inputHobby.value = "";
 }
 
 const closeModalButton = document.querySelector("#close-modal");
