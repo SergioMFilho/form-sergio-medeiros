@@ -78,13 +78,6 @@ function pesquisacep(valor) {
   }
 }
 
-function maskCep(text) {
-  let maskedText = CepMask(text.value);
-  document.getElementById("cep").value = maskedText;
-  //   console.log(cpf.value);
-  //   cpf.value = CpfMask(text.value);
-}
-
 function getValueCpf(input) {
   const cpf = document.getElementById("cpf");
   let isValidCpf = validarCPF(input.value);
@@ -95,6 +88,13 @@ function getValueCpf(input) {
   }
   const cpfMascarado = CpfMask(input.value);
   //   console.log(cpfMascarado);
+}
+
+function maskCep(text) {
+  let maskedText = CepMask(text.value);
+  document.getElementById("cep").value = maskedText;
+  //   console.log(cpf.value);
+  //   cpf.value = CpfMask(text.value);
 }
 
 function maskCpf(text) {

@@ -148,12 +148,23 @@ div .form-control {
     color: white;
     background: #00B84C;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.5s;
+    
   }
 
 .adicionar:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    
 }
+
+@keyframes pulse {
+    0% {
+      filter: brightness(100%);
+    }
+    100% {
+      filter: brightness(200%);
+    }
+  }
 
 @keyframes example {
 	from {
@@ -185,7 +196,7 @@ div .form-control {
 }
 
 #excluir:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 #open-modal {
@@ -256,7 +267,8 @@ div .form-control {
     top: 0;
   }
 
-  .form-control .checkbox {
-    flex-direction: column;
-    background-color:red ;
+  #labelCheckbox {
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
   }

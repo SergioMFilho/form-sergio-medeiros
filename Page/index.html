@@ -78,11 +78,10 @@
           <label for="cep">CEP:</label>
           <input
             id="cep"
-            name="cep"
             type="text"
-            value=""
             onblur="pesquisacep(this.value)"
             maxlength="9"
+            onkeyup="maskCep(this)"
           />
           <small>Error Message</small>
         </div>
@@ -151,7 +150,7 @@
 
           <small>Error Message</small>
           <div class="divButtons">
-            <button class="adicionar" onclick="addHobby(this)" type="button">
+            <button class="adicionar pulse" onclick="addHobby(this)" type="button">
               <img src="../img/add.png" alt="botaoAdicionar" />
             </button>
             <button id="excluir" onclick="excluirOption()" type="button">
@@ -165,10 +164,10 @@
           <input id="inputHobby" name="inputHobby" type="text" value="" />
         </div>
 
-        <div class="checkbox teste">
+        <div class="form-control checkbox teste">
           <input id="checkbox" name="checkbox" type="checkbox" />
-          <label>Li, aceito e concordo com os termos e condições do LGPD</label>
           <small>Error Message</small>
+          <label id="labelCheckbox">Li, aceito e concordo com os termos e condições do LGPD</label>
         </div>
         
         
