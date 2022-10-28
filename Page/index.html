@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../CSS/styles.css" />
     <script src="../script/index.js" defer></script>
   </head>
-  <body>
+  <body class="gradient">
     <div class="container">
       <div class="header">
         <!-- <h2>Form-Sérgio-Medeiros</h2> -->
@@ -173,23 +173,19 @@
           <small>Error Message</small>
           <label id="labelCheckbox">Li, aceito e concordo com os termos e condições do LGPD</label>
         </div>
-
-        <!-- <a href="">
-          <span>Enviar</span>
-        </a> -->
-
-       
+        
+        
+        <!-- <button class="buttonSubmit" type="submit" form="form">Enviar</button> -->
+        <!-- <a href="#"><span>Read More</span></a> -->
         <button
           id="open-modal"
           type="submit"
-          class="buttonSubmit"
+          class="buttonSubmit btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
           form="form"
           onclick="modalDeSucesso(this)">
-          <a href="">
-            <span>Enviar</span>
-          </a>
+          Enviar
         </button>
         <div id="fade" class="hide"></div>
         <div id="modal" class="hide">
