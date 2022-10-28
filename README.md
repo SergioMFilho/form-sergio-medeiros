@@ -5,7 +5,7 @@
 ## Form Sérgio Medeiros
 
 - O formulário foi criado seguindo os requisitos listados abaixo e além dos diferenciais implementados, foram adicionados validações para TODOS os campos, bem como validações adicionais (Validações adicionais para o modal ser chamado, validações para o campo de 'hobbys').
-- O formulário também conta com boas práticas de formulários UX, contando com a divisão dos dados pessois e dados para contato, bem como os campos obrigatórios de preenchimento.
+- O formulário também conta com boas práticas de formulários UX, contando com a divisão dos dados pessoais e dados para contato, bem como os campos obrigatórios de preenchimento.
 - O layout é bem responsivo e dinâmico, fornecendo alguns elementos avançados do CSS como transition, animation e o keyframes.
 - Enfim, um formulário bem modesto, porém, com todas as suas funcionalidades e validades funcionando normalmente.
 
