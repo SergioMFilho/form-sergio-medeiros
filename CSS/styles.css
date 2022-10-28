@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    border: 0;
+    
 }
 
 .gradient {
@@ -65,7 +65,7 @@ body {
 .dadosPessoais {
     font-size: 1.2rem;
     color: #28c62a;
-    padding-bottom: 2px;
+    padding-bottom: 10px;
 }
 
 
@@ -106,6 +106,10 @@ div .form-control {
     padding: 15px;
 }
 
+.form-control input:focus {
+  filter: drop-shadow(0px 0px 5px #000000)
+}
+
 .form-control.success input {
     border: 3px solid #4ECA64;
 }
@@ -140,6 +144,11 @@ div .form-control {
     margin-top: 5px;
     font-size: 14px;
 
+}
+
+form-control input, checkbox {
+  width: 80%;
+  display: flex;
 }
 
 .form .buttonSubmit {
@@ -179,6 +188,7 @@ div .form-control {
     background: #28c62a;
     cursor: pointer;
     transition: all 0.5s;
+    filter: drop-shadow(0px 0px 2px #000000)
     
   }
 
@@ -222,6 +232,7 @@ div .form-control {
     background: #FF0256;
     cursor: pointer;
     transition: all 0.3s;
+    filter: drop-shadow(0px 0px 2px #000000)
 }
 
 #excluir:hover {
@@ -230,6 +241,12 @@ div .form-control {
 
 #open-modal {
   background-color: #28c62a;
+  transition: all 0.3s;
+  
+}
+
+#open-modal:hover {
+  transform: scale(1.05);
 }
 
 #modal {
@@ -300,4 +317,17 @@ div .form-control {
     margin-top: 20px;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  #close-modal {
+    padding: 8px;
+    border-radius: 15%;
+    transition: 1s;
+  }
+
+  #close-modal:hover {
+    background-color: #FF0256;
+    transition: 1s;
   }

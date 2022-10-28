@@ -36,7 +36,7 @@
       <form class="form" id="form">
         <div class="form-control">
           <div class="dadosPessoais">Dados Pessoais</div>
-          <label for="nome">Nome:</label> 
+          <label for="nome">Nome *</label> 
           <input
             id="nome"
             name="nome"
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-control">
-          <label for="cpf">CPF:</label>
+          <label for="cpf">CPF *</label>
           <input
             id="cpf"
             type="text"
@@ -60,13 +60,13 @@
         </div>
 
         <div class="form-control">
-          <label for="dataNascimento">Data de Nascimento:</label>
+          <label for="dataNascimento">Data de Nascimento</label>
           <input id="dataNascimento" name="dataNascimento" type="date" onblur="validadata()"/>
           <small>Error Message</small>
         </div>
 
         <div class="form-control">
-          <label for="idade">Idade:</label>
+          <label for="idade">Idade</label>
           <input
             id="idade"
             name="idade"
@@ -78,7 +78,7 @@
 
         <div class="form-control">
           <div class="dadosPessoais">Informações de Contato</div>
-          <label for="cep">CEP:</label>
+          <label for="cep">CEP *</label>
           <input
             id="cep"
             type="text"
@@ -91,13 +91,13 @@
         </div>
 
         <div class="form-control">
-          <label for="rua">Rua:</label>
+          <label for="rua">Rua</label>
           <input id="rua" name="rua" type="text" onblur="getValueRua(this)" />
           <small>Error Message</small>
         </div>
 
         <div class="form-control">
-          <label for="numero">Número:</label>
+          <label for="numero">Número</label>
           <input
             id="numero"
             name="numero"
@@ -108,7 +108,7 @@
         </div>
 
         <div class="form-control">
-          <label for="bairro">Bairro:</label>
+          <label for="bairro">Bairro</label>
           <input
             id="bairro"
             name="bairro"
@@ -119,7 +119,7 @@
         </div>
 
         <div class="form-control">
-          <label for="cidade">Cidade:</label>
+          <label for="cidade">Cidade</label>
           <input
             id="cidade"
             name="cidade"
@@ -130,7 +130,7 @@
         </div>
 
         <div class="form-control">
-          <label for="estado">Estado:</label>
+          <label for="estado">Estado</label>
           <input
             id="estado"
             name="estado"
@@ -142,7 +142,7 @@
         </div>
 
         <div class="form-control">
-          <label> Escolha qual é o seu hobby preferido: </label>
+          <label> Escolha qual é o seu hobby preferido </label>
           <select id="hobby" name="hobby" multiple size="4">
             <option value="viajar">Viajar</option>
             <option value="exerciciosFisicos">Exercícios Físicos</option>
@@ -162,16 +162,15 @@
             </button>
           </div>
           <label>
-            O seu hobby preferido não está na lista? Adicione ele aqui, e em
-            seguida clique no botão '+'
+            Caso o seu hobby preferido não esteja na lista o adicione no campo "+", ou remova algum hobby usando o botão "X" 
           </label>
           <input id="inputHobby" name="inputHobby" type="text" value="" />
         </div>
 
-        <div class="form-control checkbox teste">
+        <div class="form-control checkbox">
           <input id="checkbox" name="checkbox" type="checkbox" />
-          <small>Error Message</small>
-          <label id="labelCheckbox">Li, aceito e concordo com os termos e condições do LGPD</label>
+          <!-- <small id="smallCheckbox">Error Message</small>  -->
+          <label id="labelCheckbox">Li e concordo com os termos de uso</label>
         </div>
         
         
@@ -190,8 +189,10 @@
         <div id="fade" class="hide"></div>
         <div id="modal" class="hide">
           <div class="modal-header">
-            <h2>Este é o Modal</h2>
-            <button id="close-modal" onclick="toggleModal()">Fechar</button>
+            <img src="http://strategibrasil.com.br/wp-content/uploads/2021/01/logo_grupo_strategi.svg" alt="">
+            <button id="close-modal" onclick="toggleModal()">
+              <img id="imgCloseModal" src="../img/delete1.png" alt="botaoExcluir" />
+            </button>
           </div>
           <div class="modal-body">
             <pre id="result">

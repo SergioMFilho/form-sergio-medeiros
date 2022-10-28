@@ -1,5 +1,6 @@
 const form = document.getElementById("form");
 const nome = document.getElementById("nome");
+const cep1 = document.getElementById("cep");
 
 function limpa_formulário_cep() {
   //Limpa valores do formulário de cep.
@@ -10,17 +11,29 @@ function limpa_formulário_cep() {
 }
 
 function meu_callback(conteudo) {
-  if (!("erro" in conteudo)) {
+  console.log(conteudo.erro);
+  if (!conteudo.erro) {
+    console.log("entrei");
     //Atualiza os campos com os valores.
     document.getElementById("rua").value = conteudo.logradouro;
     document.getElementById("bairro").value = conteudo.bairro;
     document.getElementById("cidade").value = conteudo.localidade;
     document.getElementById("estado").value = conteudo.uf;
+
+    setSuccessFor(cep1);
+    setSuccessFor(rua);
+    setSuccessFor(bairro);
+    setSuccessFor(cidade);
+    setSuccessFor(estado);
   } //end if.
   else {
     //CEP não Encontrado.
     limpa_formulário_cep();
-    setErrorFor(nome, "CEP inválido");
+    setErrorFor(cep1, "CEP inválido");
+    setDefaultFor(rua);
+    setDefaultFor(bairro);
+    setDefaultFor(cidade);
+    setDefaultFor(estado);
   }
 }
 
@@ -29,7 +42,6 @@ function pesquisacep(valor) {
   const bairro = document.getElementById("bairro");
   const cidade = document.getElementById("cidade");
   const estado = document.getElementById("estado");
-  const cep1 = document.getElementById("cep");
   //Nova variável "cep" somente com dígitos.
   var cep = valor.replace(/\D/g, "");
 
@@ -41,10 +53,10 @@ function pesquisacep(valor) {
     //Valida o formato do CEP.
     if (validacep.test(cep)) {
       //Preenche os campos com "..." enquanto consulta webservice.
-      document.getElementById("rua").value = "...";
-      document.getElementById("bairro").value = "...";
-      document.getElementById("cidade").value = "...";
-      document.getElementById("estado").value = "...";
+      rua.value = "...";
+      bairro.value = "...";
+      cidade.value = "...";
+      estado.value = "...";
 
       //Cria um elemento javascript.
       var script = document.createElement("script");
@@ -52,14 +64,9 @@ function pesquisacep(valor) {
       //Sincroniza com o callback.
       script.src =
         "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
-
       //Insere script no documento e carrega o conteúdo.
+
       document.body.appendChild(script);
-      setSuccessFor(cep1);
-      setSuccessFor(rua);
-      setSuccessFor(bairro);
-      setSuccessFor(cidade);
-      setSuccessFor(estado);
     } //end if.
     else {
       //cep é inválido.
@@ -93,8 +100,6 @@ function getValueCpf(input) {
 function maskCep(text) {
   let maskedText = CepMask(text.value);
   document.getElementById("cep").value = maskedText;
-  //   console.log(cpf.value);
-  //   cpf.value = CpfMask(text.value);
 }
 
 function maskCpf(text) {
@@ -310,6 +315,12 @@ function setSuccessFor(input) {
   formControl.className = "form-control success";
 }
 
+function setDefaultFor(input) {
+  const formControl = input.parentElement;
+
+  formControl.className = "form-control";
+}
+
 function CpfMask(num) {
   let resultValue = "";
   const numberValue = num.replace(/[\D]+/g, "").substring(0, 11);
@@ -349,7 +360,11 @@ function addHobby() {
   let hobby = listHobbys(document.getElementById("hobby"));
   let inputHobby = document.getElementById("inputHobby");
   let option = document.createElement("option");
-  const found = hobby.find((element) => element === inputHobby.value);
+  const found = hobby.find(
+    (element) =>
+      element.toLowerCase().trim().replace(" ", "") ===
+      inputHobby.value.toLowerCase().trim().replace(" ", "")
+  );
   if (inputHobby.value != "" && !found) {
     option.innerText = inputHobby.value;
     document.getElementById("hobby").appendChild(option);
@@ -379,6 +394,7 @@ function listHobbys(hobbysOptions) {
 }
 
 function modalDeSucesso() {
+  let hasError = false;
   let checkbox = document.getElementById("checkbox");
   if (checkbox.checked) {
     let nome = document.getElementById("nome").value;
@@ -393,6 +409,24 @@ function modalDeSucesso() {
     let estado = document.getElementById("estado").value;
     let hobby = listHobbys(document.getElementById("hobby"));
     let result = document.getElementById("result");
+    if (!nome) {
+      setErrorFor(
+        document.getElementById("nome"),
+        "O campo nome é obrigatório"
+      );
+      hasError = true;
+    }
+    if (!cpf) {
+      setErrorFor(document.getElementById("cpf"), "O campo cpf é obrigatório");
+      hasError = true;
+    }
+    if (!cep) {
+      setErrorFor(document.getElementById("cep"), "O campo cep é obrigatório");
+      hasError = true;
+    }
+    if (hasError) {
+      return alert("Existem campos obrigatórios que não estão preenchidos");
+    }
     result.textContent = JSON.stringify(
       {
         nome,
@@ -412,6 +446,11 @@ function modalDeSucesso() {
     );
     toggleModal();
   } else {
-    setErrorFor(checkbox, "Ative o checkbox");
+    setErrorFor(
+      checkbox,
+      alert(
+        "Para prosseguir com o cadastro é necessário estar de acordo com os termos de uso"
+      )
+    );
   }
 }
